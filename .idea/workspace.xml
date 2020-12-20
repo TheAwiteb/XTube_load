@@ -1,25 +1,216 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bc5c4a4b-c978-44ed-bb83-8cf20b719afa" name="Default Changelist" comment="" />
+    <list default="true" id="bc5c4a4b-c978-44ed-bb83-8cf20b719afa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/XTube_load.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/XTube_load_functions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/chardetect" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/pytube" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/pytube3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/Download_video_img.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/Search_img.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/certifi-2020.12.5.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/certifi-2020.12.5.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/certifi-2020.12.5.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/certifi-2020.12.5.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/certifi-2020.12.5.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/certifi-2020.12.5.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/certifi/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/certifi/__main__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/certifi/cacert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/certifi/core.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet-4.0.0.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet-4.0.0.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet-4.0.0.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet-4.0.0.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet-4.0.0.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet-4.0.0.dist-info/entry_points.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet-4.0.0.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/big5freq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/big5prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/chardistribution.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/charsetgroupprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/charsetprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/cli/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/cli/chardetect.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/codingstatemachine.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/cp949prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/enums.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/escprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/escsm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/eucjpprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/euckrfreq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/euckrprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/euctwfreq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/euctwprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/gb2312freq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/gb2312prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/hebrewprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/jisfreq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/jpcntx.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/langbulgarianmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/langgreekmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/langhebrewmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/langhungarianmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/langrussianmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/langthaimodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/langturkishmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/latin1prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/mbcharsetprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/mbcsgroupprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/mbcssm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/metadata/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/metadata/languages.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/sbcharsetprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/sbcsgroupprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/sjisprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/universaldetector.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/utf8prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/chardet/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/idna-2.10.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/idna-2.10.dist-info/LICENSE.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/idna-2.10.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/idna-2.10.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/idna-2.10.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/idna-2.10.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/idna/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/idna/codec.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/idna/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/idna/core.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/idna/idnadata.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/idna/intranges.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/idna/package_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/idna/uts46data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube-10.0.0.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube-10.0.0.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube-10.0.0.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube-10.0.0.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube-10.0.0.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube-10.0.0.dist-info/entry_points.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube-10.0.0.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube-10.0.0.dist-info/zip-safe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube/__main__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube/captions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube/cipher.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube/cli.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube/contrib/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube/contrib/playlist.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube/extract.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube/helpers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube/itags.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube/metadata.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube/monostate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube/query.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube/request.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube/streams.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/pytube/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/typing_extensions-3.7.4.3.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/typing_extensions-3.7.4.3.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/typing_extensions-3.7.4.3.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/typing_extensions-3.7.4.3.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/typing_extensions-3.7.4.3.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/typing_extensions-3.7.4.3.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/typing_extensions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/youtube_search_python-1.3.2.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/youtube_search_python-1.3.2.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/youtube_search_python-1.3.2.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/youtube_search_python-1.3.2.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/youtube_search_python-1.3.2.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/youtube_search_python-1.3.2.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/youtubesearchpython/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/youtubesearchpython/__requesthandler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/youtubesearchpython/playlist__scripthandler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/youtubesearchpython/playlist__search.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/youtubesearchpython/videos__pagehandler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/youtubesearchpython/videos__scripthandler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/python3.8/site-packages/youtubesearchpython/videos__search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1lsrAr6tQoFYfYfAbN7JFvdErvo" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager" selected="Python.Test_XTube">
+    <configuration name="Test_XTube" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="XTube_load" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Test_XTube.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="XTube_load_functions" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="XTube_load" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/XTube_load_functions.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Test_XTube" />
+        <item itemvalue="Python.XTube_load_functions" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -43,5 +234,8 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
