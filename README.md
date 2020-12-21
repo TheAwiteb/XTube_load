@@ -14,13 +14,14 @@ type of entry as there is an automatic recognition system for the input type and
 
 _____
 # 3-Save files
-File saving system, suitable because the video that you want to download can be renamed or saved with the same title, and also when the names are similar in the same path, the numbers are added to the name, 
-and when an incorrect path is entered or the file cannot be saved in, you are given a message to enter the path once Other
+A file saving system, suitable because the video you want to download can be renamed or left blank to be saved with the same video title, and when you choose a path you can leave it blank to download the video to the desktop, and also when the names are similar in the same path, the numbers are added to the name,
+When an incorrect path is entered or the file cannot be saved, you are given a message to enter the path again
 
 # Explanation of the tool
 # **Search**
 The search is simple as its job is to search only on YouTube and print the title of the clip, 
 the link and the duration, and from there you choose a clip and enter it in the place of entry
+
 ![Search_img](./image/Search_img.jpeg)
 
 As you can see, I entered the text and searched without entering the type of entry (text, video link, or playlist link), then entered the number of results I wanted (number of videos or playlists) and then entered I want to search for video clips, and the results were printed successfully, The option to enter the link to download the searched video has opened
@@ -35,3 +36,5 @@ At first I entered the link that I copied from the above search process, then I 
 # I will add it later
 Download a playlist, choose the quality of the videos, and choose how many videos you want to download
 
+# Note
+**The code is explained in Arabic**
