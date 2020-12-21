@@ -21,6 +21,7 @@ and when an incorrect path is entered or the file cannot be saved in, you are gi
 # **Search**
 The search is simple as its job is to search only on YouTube and print the title of the clip, 
 the link and the duration, and from there you choose a clip and enter it in the place of entry
+
 ![Search_img](./image/Search_img.jpeg)
 
 As you can see, I entered the text and searched without entering the type of entry (text, video link, or playlist link), then entered the number of results I wanted (number of videos or playlists) and then entered I want to search for video clips, and the results were printed successfully, The option to enter the link to download the searched video has opened
