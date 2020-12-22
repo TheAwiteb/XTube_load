@@ -37,4 +37,5 @@ At first I entered the link that I copied from the above search process, then I 
 Download a playlist, choose the quality of the videos, and choose how many videos you want to download
 
 # Note
+**This tool does not work on Windows, Another Windows tool will be released**
 **The code is explained in Arabic**
