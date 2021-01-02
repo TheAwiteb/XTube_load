@@ -56,4 +56,15 @@ The download is very fast, it also provides you with complete information and ma
 
 ![Download_img](./image/Download_video_img.jpeg)
 
+<<<<<<< HEAD
 At first I entered the link that I copied from the above search process, then I chose to download the video in the form of audio, and I did not enter a name for the file to be saved with the same  title on YouTube, and I did not enter a path also to be saved on the desktop, and finally I entered "y" because I want to complete The download process, and as you can see, the file has been downloaded to my desktop
+=======
+At first I entered the link that I copied from the above search process, then I chose to download the video in the form of audio, and I did not enter a name for the file to be saved with the same  title on YouTube, and I did not enter a path also to be saved on the desktop, and finally I entered "y" because I want to complete The download process, and as you can see, the file has been downloaded to my desktop
+
+# I will add it later
+Download a playlist, choose the quality of the videos, and choose how many videos you want to download
+
+# Note
+**This tool does not work on Windows, Another Windows tool will be released**
+**The code is explained in Arabic**
+>>>>>>> 39b2de166c51078205a0a0fca77d98bc3ee8e878
