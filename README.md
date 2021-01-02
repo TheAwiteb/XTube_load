@@ -1,6 +1,31 @@
 # XTube Load
-The XTube Load tool is a tool to download from YouTube and also search . You can search for playlists and clips on YouTube through the tool and 
+The XTube Load tool is a tool to download from YouTube,soundcloud and also search . You can search for playlists and clips on YouTube,soundcloud through the tool and 
 download them immediately, and also choose the quality of the video and you can also download audio.
+
+
+# How to run the tool
+Need:
+    
+python >= 3.7
+
+git
+
+open comand line
+    
+    git clone https://github.com/Awiteb/XTube_load
+**or**
+
+![GetHub clone](./image/github_clone.png)
+
+Download zip Then unzip it
+
+And then enter the file path and write
+    
+    source bin/activate
+
+And then to run the tool type
+
+    python3 XTube_load.py
 
 **Some features**
 ______
@@ -32,9 +57,3 @@ The download is very fast, it also provides you with complete information and ma
 ![Download_img](./image/Download_video_img.jpeg)
 
 At first I entered the link that I copied from the above search process, then I chose to download the video in the form of audio, and I did not enter a name for the file to be saved with the same  title on YouTube, and I did not enter a path also to be saved on the desktop, and finally I entered "y" because I want to complete The download process, and as you can see, the file has been downloaded to my desktop
-
-# I will add it later
-Download a playlist, choose the quality of the videos, and choose how many videos you want to download
-
-# Note
-**The code is explained in Arabic**
