@@ -203,7 +203,7 @@ class Soundcloud_dl():
                 list: get all data of track / playlist
             """
             browser_options = Options() #انشاء متغير اعدادات المتصفح
-            browser_options.add_argument('--headless') #اخفاء المتصفح
+            #browser_options.add_argument('--headless') #اخفاء المتصفح
             global browser #جعل متغير المتصفح عام
             browser = webdriver.Firefox(executable_path='./driver/geckodriver',options=browser_options) #تشغيل المتصفح
             browser.get(get_url()) #اخذ رابط الصغحة من الدالة
