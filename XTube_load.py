@@ -22,8 +22,18 @@ while True: #loop of projram
         break
     elif userInput == '-h':
         print("""
-            \rHi, the tool “Xtube load” is an open source tool and the source code can be found at, https://github.com/Awiteb/XTube_load
-            \rIt is a tool to download and search for an item or playlist from (YouTube and Soundcloud)""")
+            \rYou can do with the tool:
+            \r    Search in:
+            \r        YouTube -> video/playlist
+            \r        SoundCloud -> track/playlist
+            \r
+            \r    Download from:
+            \r        YouTube -> video/playlist
+            \r        SoundCloud -> track/playlist
+            \r
+            \r Just enter the link to download, or text to search at the entry location
+            \r
+            \rThe source code: https://github.com/Awiteb/XTube_load """)
         continue
     userInputType, url = checkInput(userInput) #تخزين نوع الادخال في متغير
     if userInputType == "string": #اذا كان النوع نص
