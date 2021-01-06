@@ -205,7 +205,7 @@ class Soundcloud_dl():
             browser_options = Options() #انشاء متغير اعدادات المتصفح
             #browser_options.add_argument('--headless') #اخفاء المتصفح
             global browser #جعل متغير المتصفح عام
-            browser = webdriver.Firefox(executable_path='./driver/geckodriver',options=browser_options) #تشغيل المتصفح
+            browser = webdriver.Firefox(executable_path='./venv/driver/geckodriver',options=browser_options) #تشغيل المتصفح
             browser.get(get_url()) #اخذ رابط الصغحة من الدالة
             sleep(5) #الانتظار حتى تفتح الصفحة ويتم تشغيل السكربتات
             li_tags = [] #انشاء لستة لحفظ النتائج فيها
