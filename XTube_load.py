@@ -31,8 +31,7 @@ while True: #loop of projram
             \r        YouTube -> video/playlist
             \r        SoundCloud -> track/playlist
             \r
-            \r Just enter the link to download, or text to search at the entry location
-            \r
+            \rJust enter the link to download, or text to search 
             \rThe source code: https://github.com/Awiteb/XTube_load """)
         continue
     userInputType, url = checkInput(userInput) #تخزين نوع الادخال في متغير
@@ -127,8 +126,7 @@ while True: #loop of projram
                 video = yt.streams.filter(mime_type="audio/mp4", type="audio").first()
                 dataCollection = True
             else:
-                break
-
+                continue
             if typeVoice: #اذا كان التنزيل صوت
                 v.extension = '.mp3' #الامتداد 
                 v.quality = None #ولايوجد له جودة
