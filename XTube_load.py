@@ -1,4 +1,4 @@
-from XTube_load_functions import Youtube, Soundcloud_dl, checkInput, checkPath, checkName
+from XTube_load_functions import *
 from pytube import YouTube, Playlist
 import os
 from colorama import init, Fore, Back
