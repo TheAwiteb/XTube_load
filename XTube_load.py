@@ -13,7 +13,7 @@ print(f'''{Fore.YELLOW}
  GitHub: Awiteb               |
  Email: Awiteb@hotmail.com    |''')
 print(f"{Fore.YELLOW}{'-'*30}|")
-print("'-h' to help.!")
+print("'-h' to help!")
 
 while True: #loop of projram
     print(f"{Fore.MAGENTA}\n𝚙𝚛𝚎𝚜𝚜 𝚎𝚗𝚝𝚎𝚛 𝚝𝚘 𝚚𝚞𝚒𝚝.\033[39m")
@@ -23,16 +23,26 @@ while True: #loop of projram
     elif userInput == '-h':
         print("""
             \rYou can do with the tool:
-            \r    Search in:
-            \r        YouTube -> video/playlist
-            \r        SoundCloud -> track/playlist
+            \r  Search in:
+            \r      YouTube -> video/playlist
+            \r      SoundCloud -> track/playlist
             \r
-            \r    Download from:
-            \r        YouTube -> video/playlist
-            \r        SoundCloud -> track/playlist
+            \r  Download from:
+            \r      YouTube -> video/playlist
+            \r      SoundCloud -> track/playlist
+            \r
+            \r  Commands:
+            \r      -h -> Show this message  
+            \r      -clear -> Clear the window
             \r
             \rJust enter the link to download, or text to search 
             \rThe source code: https://github.com/Awiteb/XTube_load """)
+        continue
+    elif userInput == '-clear':
+        if get_operating_system == "Windows":
+            os.system('cls')
+        else:
+            os.system('clear')
         continue
     userInputType, url = checkInput(userInput) #تخزين نوع الادخال في متغير
     if userInputType == "string": #اذا كان النوع نص
