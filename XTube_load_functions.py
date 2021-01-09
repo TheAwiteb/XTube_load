@@ -31,15 +31,16 @@ def checkName(path, fileName, extension):
     else:
         return fileName
 
+def get_operating_system():
+    return platform.system()
 def checkPath(path:str):
 
     if path == '': #اذ لم يتم ادخال ايشي
-        if platform.system() == 'Windows': #اذا كان نظام التشغيل ويندوز
+        if get_operating_system() == 'Windows': #اذا كان نظام التشغيل ويندوز
             DESKTOP = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop') #هاذا هو مسار سطح المكتب
         else: #اذا كان نظام التشغيل لينكس او يونكس
             DESKTOP = os.path.join(os.path.join(os.path.expanduser('~')), 'Desktop')#هاذا مسار سطح المكتب في اللينكس واليونكس
         path = DESKTOP #حفظ المسار هو سطح المكتب
-        return path
     else:
         if os.path.lexists(path):
             if os.path.isdir(path):
@@ -48,7 +49,7 @@ def checkPath(path:str):
                 path = None
         else:
             path = None
-        return path
+    return path
     
 
 
