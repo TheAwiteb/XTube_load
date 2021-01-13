@@ -337,7 +337,7 @@ class Soundcloud_dl():
         except:
             return False
         if fileName == '':
-            fileName = track.title
+            fileName = checkName(path,track.title,'.mp3')
         else:
             pass
         with open(f"{path}/{fileName}.mp3",'wb+') as f:

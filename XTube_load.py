@@ -3,6 +3,7 @@ from pytube import YouTube, Playlist
 import os
 from colorama import init, Fore, Back
 from sclib import SoundcloudAPI
+from time import sleep
 init(autoreset=True)
 #Fore: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE,
 
@@ -24,8 +25,8 @@ while True: #loop of projram
         print("""
             \rYou can do with the tool:
             \r  Search in:
-            \r      YouTube -> video/playlist
-            \r      SoundCloud -> track/playlist
+            \r      YouTube -> video/playlist      Max -> 20
+            \r      SoundCloud -> track/playlist   Max -> 10
             \r
             \r  Download from:
             \r      YouTube -> video/playlist
@@ -137,28 +138,27 @@ while True: #loop of projram
                 dataCollection = True
             else:
                 continue
+
             if typeVoice: #اذا كان التنزيل صوت
                 v.extension = '.mp3' #الامتداد 
                 v.quality = None #ولايوجد له جودة
             else: #اذ لم يكن
                 v.extension = '.mp4' #الامتداد
 
-
             if dataCollection: #اذا كانت البيانات كاملة(غالبا ماتكون كاملة وهاذا الشرط فقط لتفادي المشاكل)
                 print(f"Title is '{yt.title}'") #طباعة عنوان المقطع
-                v.name = input(f"{Fore.CYAN}\nEnter file name (Press enter to make the title the name of file):\033[39m ") #اذ كنت ترغب بتغير الاسم
-                if v.name == '': #اذ لم تدخل شي 
-                    v.name = yt.title #وضع عنوان المقطع اسم للملف
-                else: #اذا وضع اسم لاتفعل شي
-                    pass
-
+                v.name = input(f"{Fore.CYAN}\nEnter file name (Press enter to make the title the name of file):\033[39m ").replace(' ','_') #اذ كنت ترغب بتغير الاسم
                 while True: #وايل وضع مسار للملف
                     path = input(f"{Fore.CYAN}\nEnter the path to place the video in (Press Enter to download to the desktop):\033[39m ").replace('\\','/').rstrip('/') #اخذ المسار
-                    v.name = checkName(path, v.name, v.extension)
                     path = checkPath(path)
                     if path == None:
                         print(f"{Fore.RED}Sorry, the path does not exist. Please enter a valid path to complete the download.!\033[39m")
+                        continue
                     else:
+                        if v.name == '':
+                            v.name = checkName(path,yt.title.replace(' ','_'),v.extension)
+                        else:
+                            v.name = checkName(path, v.name, v.extension)
                         v.path = f"{path}/{v.name}{v.extension}"
                         break
 
@@ -180,14 +180,11 @@ while True: #loop of projram
                 while True: #وايل التاكد من الرغبة بتحميل الفديو
                     sureDownload = input(f"{Fore.CYAN}\nAre you sure you want to continue downloading? y/n:\033[39m ")
                     if sureDownload == 'y': #اذا كانت الاجابة نعم
-                        video.download(path, filename = v.name,) #تحميل
-                        if typeVoice: #اذا كان المراد تحميله صوت
-                            os.rename(path+'/'+v.name+'.mp4', v.path) #تغير امتاد الصوت الى صوت (ملاحظة المكتبة تحمل الصوت بامتداد فديو مرئي ويتم تغيره هنا)
-                            print(f"{Fore.YELLOW}Done, Download successful..!")
-                            break #الخروج من الوايل
-                        else:
-                            print(f"{Fore.YELLOW}Done, Download successful..!")
-                            break #الخروج من الوايل
+                        mp4fileName = checkName(path,'a','.mp4')
+                        video.download(path, filename = mp4fileName) #تحميل
+                        os.rename(path+'/'+mp4fileName+'.mp4', f"{path}/{v.name}{v.extension}") #تغير امتاد الصوت الى صوت (ملاحظة المكتبة تحمل الصوت بامتداد فديو مرئي ويتم تغيره هنا)
+                        print(f"{Fore.YELLOW}Done, Download successful..!")
+                        break #الخروج من الوايل
                     elif sureDownload == 'n': # اذا كانت الاجالة لا
                         break #الخروج من الوايل
                     else: #غير ذالك اطبع اختار نعم ام لا
@@ -230,8 +227,8 @@ while True: #loop of projram
                 typeVoice = True
                 extension = '.mp3'
             else:
-                break
-            userFileName = input(f"{Fore.CYAN}\nEnter file name (Press enter to make the video title the name of file):\033[39m ")
+                continue
+            userFileName = input(f"{Fore.CYAN}\nEnter file name (Press enter to make the video title the name of file):\033[39m ").replace(' ','_')
             while True: #وايل وضع مسار للملف
                 path = input(f"{Fore.CYAN}\nEnter the path to place the video in (Press Enter to download to the desktop):\033[39m ").replace('\\','/') #اخذ المسار
                 path = checkPath(path)
@@ -245,7 +242,11 @@ while True: #loop of projram
             print(f"\n{maxResultOnPlaylist} video in playlist => Title: {pl.title}")
             while True:
                 try:
-                    maxResult = int(input(f"{Fore.CYAN}How many videos do you want to download: \033[39m"))
+                    maxResult = input(f"{Fore.CYAN}How many track do you want to download (Press enter to select all): \033[39m")
+                    if maxResult == '':
+                        maxResult = maxResultOnPlaylist
+                    else:
+                        maxResult = int(maxResult)
                     if maxResult > maxResultOnPlaylist:
                         print(f"{Fore.RED}Sorry, the number of results you want is more than the results in the playlist.!\033[39m")
                         continue
@@ -256,9 +257,13 @@ while True: #loop of projram
                     continue
 
             for vidUrl in pl.video_urls[:maxResult]:
-                yt = YouTube(vidUrl)
+                try:
+                    yt = YouTube(vidUrl)
+                except Exception as e:
+                    print(f"{Fore.RED}Sorry, {e}.!\033[39m")
+                    continue
                 if userFileName == '':
-                    fileName = checkName(path,yt.title,extension)
+                    fileName = checkName(path,yt.title,extension).replace('  ','_')
                 else:
                     fileName = checkName(path,userFileName,extension)
                 
@@ -271,14 +276,11 @@ while True: #loop of projram
                     else:
                         pass
                 
-                if typeVoice: #اذا كان المراد تحميله صوت
-                    temporaryName = checkName(path,'a','.mp4')
-                    video.download(output_path=path, filename=temporaryName)
-                    os.rename(path+'/'+temporaryName+'.mp4', f"{path}/{fileName}{extension}") #تغير امتاد الصوت الى صوت (ملاحظة المكتبة تحمل الصوت بامتداد فديو مرئي ويتم تغيره هنا)
-                    print(f"{Fore.YELLOW}Done, Download {fileName}{extension}")
-                else:
-                    video.download(output_path=path, filename=fileName)
-                    print(f"{Fore.YELLOW}Done, Download {fileName}{extension}")
+                mp4fileName = checkName(path,'XTUBE_LOAD','.mp4')
+                video.download(output_path=path, filename=mp4fileName)
+                sleep(.6)
+                os.rename(path+'/'+mp4fileName+'.mp4', f"{path}/{fileName}{extension}") #تغير امتاد الصوت الى صوت (ملاحظة المكتبة تحمل الصوت بامتداد فديو مرئي ويتم تغيره هنا)
+                print(f"{Fore.YELLOW}Done, Download {fileName}{extension}")
         else:
             print(f"{Fore.RED}Sorry, the link is not valid (try again)\033[39m")
     elif userInputType == "soundTrack": #اذا كان النوع تراك ساوندكلاود
@@ -307,7 +309,7 @@ while True: #loop of projram
             stateUrl = False
         
         if stateUrl:
-            userFileName = input(f"{Fore.CYAN}\nEnter file name (Press enter to make the track title the name of file):\033[39m ")
+            userFileName = input(f"{Fore.CYAN}\nEnter file name (Press enter to make the track title the name of file):\033[39m ").replace(' ','_')
             while True:
                 path = input(f"{Fore.CYAN}\nEnter the path to place the track in (Press Enter to download to the desktop):\033[39m ").replace('\\','/').rstrip('/') #اخذ المسار
                 path = checkPath(path)
