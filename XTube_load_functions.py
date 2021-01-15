@@ -1,12 +1,7 @@
 #Some functions for XTueb_load
 #By Awiteb
 import os, platform
-from time import sleep
-import datetime
-from bs4 import BeautifulSoup as BS
-from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
-from selenium.webdriver.common.keys import Keys
+import requests
 from sclib import SoundcloudAPI
 from pytube import YouTube, Playlist
 from youtubesearchpython import SearchVideos,SearchPlaylists
@@ -159,177 +154,80 @@ class Soundcloud_dl():
     def __init__(self):
         pass
 
+    def search(self,searchText :str, max_result :int, track = bool):
+
+        def get_url() -> str:
+            if track:
+                url = f'''https://api-v2.soundcloud.com/search/tracks?q={searchText}&sc_a_id=c4feedeb-6e15-4c64-9bbb-b84644b60f49&variant_ids=&facet=genre&user_
+                        id=59504-178307-437384-398340&client_id=8vRJNEvP8SeU3H4B4T60iRfxyibSmQQm&limit=20&offset=0&linked_partitioning=1&app_version=1610545850&app_locale=en'''
+            else:
+                url = f'''https://api-v2.soundcloud.com/search/playlists_without_albums?q={searchText}&sc_a_id=c4feedeb-6e15-4c64-9bbb-b84644b60f49&variant_ids=&facet=genre&user_
+                        id=59504-178307-437384-398340&client_id=8vRJNEvP8SeU3H4B4T60iRfxyibSmQQm&limit=20&offset=0&linked_partitioning=1&app_version=1610545850&app_locale=en'''
+            return url
         
-    def search(self,searchText :str, max_result = 10, track = True):
-
-        """Soundcloud search function using scraping
-
-        Args:
-            searchText (str): The text you want to search for in soundcloud
-            max_result (int, optional): How many result you want. Defaults to 10.
-            track (bool, optional): It is true if you want to search for a track, False to playlist. Defaults to True.
-
-        Returns:
-                Print the result using the print_data() function below
-        """
-
-        def get_num_from_str(txt):
-            """
-            A function that extracts numbers from text and puts it into one number, the function is designed 
-            for a specific type of text and it is not practical (it must be developed for use in other uses)
-
-            Args:
-                txt (str): Text is in this structure، (text 77 text)
-
-            Returns:
-                int: The number in the text
-            """
-            res = '' #اننشاء متغير لحفظ النتاج فيه
-            lst_of_num = [i for i in txt if i.isnumeric()] #جمع الارقام في لستة
-            for num in lst_of_num: #اخذ من اللستة رقم رقم
-                res += num #تخزين الاراقم في المتغير
-            return int(res) #اراجع المتغير 
-
-        def get_url():
-            if track: #اذا كان البحث عن تراك
-                url = f"https://soundcloud.com/search/sounds?q={searchText}" #اضاافة نص البحث في رابط البحث عن تراك
-            else: #اذ كان البحث عن قائمة تشغيل
-                url = f"https://soundcloud.com/search/sets?q={searchText}" #اضاافة نص البحث في رابط البحث عن قائمة تشغيل
-            return url #ارجاع الرابط
-        
-        def get_li_tags():
-            """Scraping
-
-            Returns:
-                list: get all data of track / playlist
-            """
-            browser_options = Options() #انشاء متغير اعدادات المتصفح
-            #browser_options.add_argument('--headless') #اخفاء المتصفح
-            global browser #جعل متغير المتصفح عام
-            browser = webdriver.Firefox(executable_path='./venv/driver/geckodriver',options=browser_options) #تشغيل المتصفح
-            browser.get(get_url()) #اخذ رابط الصغحة من الدالة
-            sleep(5) #الانتظار حتى تفتح الصفحة ويتم تشغيل السكربتات
-            li_tags = [] #انشاء لستة لحفظ النتائج فيها
-
-            while len(li_tags) < max_result: #طالمة عدد النتائج المستخرجة اقل من عدد النتائج المطلوبة
-                html = browser.page_source #حفظ سورس الصفحة في متغير
-                soup = BS(html,'lxml')
-                if soup.find('div',class_="searchList__empty") != None: #يتم انشاء تاق اذا لم يكن هناك نتائج (هنا اقوله اذا انه متواجد افعل الاتي)
-                    print(f"Sorry, '{searchText}' was not found in Soundcloud") #اطبع لم يتم العثور على بحثك
-                    browser.quit() #اغلق المتصفح
-                    return None
-                results_on_the_page = get_num_from_str(soup.find('div',class_='resultCounts sc-type-h3 sc-type-light').text) #جلب نص عدد النتائج واستخراجه عبر دالة استخراج الرقم
-            
-                if max_result >  results_on_the_page - 2: #اذ كان عدد النتائج المطلوبة اكثر من النتائج الموجود بالصفحة
-                    print('Sorry, the number of results you want more than the available items')
-                    browser.quit() #اغلق المتصفح
-                    return None
-                else: # اذا كان اقل
-                    result = soup.findAll('li',class_='searchList__item', limit=max_result) # سحب النتائج (في بداية الصفحة بدون النزول يكون موجود 10 عناصر فيتم سحبة قبل النزول)
-                    for res in result:
-                        if res.find('div',class_='blockedTrackMessage') == None or res.find('span',class_="waveform__emptyMessage") == None or res.find('span',class_="g-geoblocked-icon") == None: #بعض الاخطاء ان وجدت لاتضيف النتيجة
-                            li_tags.append(res)
-                        else:
-                            continue
-                    if max_result > 10:
-                        for i in range(5): #تكرار النزول 10 مرات
-                            browser.find_element_by_tag_name('html').send_keys(Keys.PAGE_DOWN) #النزول بالصفحة
-            
-            if not track: #اذا كان البحث عن قائمة تشغيل
-                browser.quit() #اغلق المتصفح لاننا لانحتاجه تحت
-            return li_tags #ارجع النتائج
-
-
-        def get_track_count(li):
-            """Fetch number of tracks inside the playlist
-
-            Returns:
-                int: Number of tracks
-            """
-            #اذا كانت عدد العناصر في قائمة التشغيل اقل من 8 لن يكون هناك نص فيه عدد التراك
+        def get_data() -> dict:
             try:
-                tracks = get_num_from_str(li.find('a',class_='compactTrackList__moreLink sc-link-light sc-border-light').text) #اذ لم يوجد النص الذي فيه عدد التراك
-            except AttributeError:
-                tracks = len(li.find('ul',class_='compactTrackList__list sc-list-nostyle sc-clearfix').findAll('li',class_='compactTrackList__item')) #اجلب عدد العناصر الخارجية
-            return tracks
+                self.internet_error = False
+                return requests.get(get_url()).json()
+            except Exception as e:
+                print(f"{Fore.RED}\nInternet error")
+                self.internet_error = True
+        
+        def get_duration(milliseconds) -> str:
+            full_duration = milliseconds / 1000 #milliseconds to seconds
+            seconds = int(full_duration % 60)
+            minutes = int(full_duration // 60)
+            hours = int(minutes // 60)
+            return f"{hours}:{minutes}:{seconds}"
 
-        def save_result():
-            """
-            Returns:
-                list: A list of dictionaries
-            """
-            result_list = [] #انشاء لستة لحفظ النتائج
-            res = get_li_tags()
-            if res == None:
+        def save_result() -> list:
+            data = get_data()
+            if not self.internet_error:
+                results = []
+                for res in data['collection'][:max_result]:
+                    result = {}
+                    result['title'] = res['title']
+                    result['like'] = res['user']['likes_count']
+                    result['username'] = res['user']['username']
+                    result['link'] = res['permalink_url']
+                    if track:
+                        result['duration'] = get_duration(res['duration'])
+                    else:
+                        result['tracks'] = res['track_count']
+                        result['tracks_titles'] = ''
+                        for i in [res['tracks'][i]['title'] for i in range(3) if i != (len(res['tracks']) -1)]:
+                            result['tracks_titles'] += f"\t{i}\n"
+                        result['tracks_titles'].rstrip('\n')
+                    results.append(result)
+                return results
+            else:
                 return None
-            for li_tag in res: #نتيجة نتيجة من النتائج
-                result_dict = {} #قاموس لتخزين النتائج ثم ادخالها الى اللستة
-
-                url_and_title = li_tag.find('div',class_ = 'soundTitle__usernameTitleContainer').findAll('a')[1] #اخذ التاق الذي يوجد فيه الرابط والعنوان
-                like = li_tag.find(class_ = 'sc-button-like sc-button sc-button-small sc-button-responsive').text #اخذ عدد الاليكات
-                if like == 'Like': #اذا لم يكن موجود ولا لايك
-                    like = 0 #لايك يساوي صفر
+        
+        def print_result():
+            results = save_result()
+            if not self.internet_error:
+                if len(results) > max_result:
+                    print(type(results))
+                    results = results[:max_result]
                 else:
                     pass
-
-                title = url_and_title.find('span').text.strip() #اخذ العنوان
-                url = 'https://soundcloud.com'+url_and_title['href'] #اخذ الرابط
-                username = li_tag.find('span',class_="soundTitle__usernameText").text.strip() #اخذ اسم المستخدم
-                
-                if track: #اذا كان البحث عن تراك
-                    browser.get(url) #فتح المتصفح على الاغنية
-                    sleep(0.5) #الانتظار نص ثانية
-                    soup = BS(browser.page_source,'lxml') #سحب سورس الصفحة
-                    try:
-                        duration = soup.find('div',class_='playbackTimeline__duration').find('span').text.strip('Duration: ') #اخذ وقت المقطع 
-                    except: #اذا حدث خطأ
-                        duration = None #اعطأ قيمة فارغة للوقت
-                    result_dict['duration'] = duration #حفظ الوقت في الدكشنري
-                else: #اذ كان البحث عن قائمة تشغيل
-                    total_track = get_track_count(li_tag) #جلب عدد التراكات
-                    result_dict['tracks'] = total_track #حفظ عدد التراكات
-                    
-                result_dict['url'] = url #حفظ الرابط في الدكشنري
-                result_dict['title'] = title #حفظ العنوان في الدكشنري
-                result_dict['username'] = username #حفظ اسم المستخدم في الدكشنري
-                result_dict['like'] = like #حفظ عدد الايكات في الدكشنري
-                result_list.append(result_dict) #اضافة الدكشنري الى اللستة
-
-            browser.quit() #اغلاق المتصفح اذا كان شغال 
-            return result_list #ارجاع اللستة داخلها مجموعة من الدكشنري
-        
-        #الدالة الوحيدة التي يتم تشغيلها في البحث هي دالة الطباعة ويتم تشغيل جميع الدوال بداخلها
-        def print_data():
-            start = datetime.datetime.now() #اخذ وقت بداية البحث
-            res = save_result()
-            if res != None:
-                for data in res: #اخذ البيانات من دالة حفظ البيانات
-                    print(f"\n{'-'*70}",end='')
-                    if track:
-                        print(f"""
-                        \rTitle: {data['title']}
-                        \rDuration: {data['duration']}
-                        \rUserName: {data['username']}
-                        \rLike: {data['like']}
-                        \rUrl: {data['url']}""",end='')
-                    else:
-                        print(f"""
-                        \rTitle: {data['title']}
-                        \rUserName: {data['username']}
-                        \rTracks: {data['tracks']}
-                        \rLike: {data['like']}
-                        \rUrl: {data['url']}""",end='')
-                print(f"\n{'-'*70}")
-
-                end = datetime.datetime.now() #اخذ وقت نهاية البحث
-                if track:
-                    search_type = 'track'
+                if len(results) != 0:
+                    for result in results:
+                        print(f"""\r{'-'*35}
+                        \r  Title: {Fore.BLUE}{result['title']}\033[39m
+                        \r  {'Duration' if track else 'Tracks'}: {Fore.BLUE}{result['duration'] if track else result['tracks']}\033[39m
+                        \r  Like: {Fore.BLUE}{result['like']}\033[39m
+                        \r  Username: {Fore.BLUE}{result['username']}\033[39m
+                        \r  Link: {Fore.BLUE}{result['link']}\033[39m"
+                        \r  {'' if track else 'Some track title:'}\n{Fore.GREEN}{'' if track else result['tracks_titles']}\033[39m""")
+                    print('-'*35,end=' ')
+                elif max_result == 0:
+                    pass
                 else:
-                    search_type = 'playlist'
-                print(f"The search was performed for {len(res)} {search_type} in {str(end - start)[:7]}s")
+                    print(f"{Fore.RED}\nSorry, There are no results for '{searchText}'")
             else:
                 pass
-        print_data()
+        print_result()
 
     def download(self,url,path,fileName):
         try:

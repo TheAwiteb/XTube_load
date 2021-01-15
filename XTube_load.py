@@ -26,7 +26,7 @@ while True: #loop of projram
             \rYou can do with the tool:
             \r  Search in:
             \r      YouTube -> video/playlist      Max -> 20
-            \r      SoundCloud -> track/playlist   Max -> 10
+            \r      SoundCloud -> track/playlist   Max -> 20
             \r
             \r  Download from:
             \r      YouTube -> video/playlist
@@ -53,13 +53,13 @@ while True: #loop of projram
                 try:
                     maxResult = int(input(f"{Fore.CYAN}\nHow many results you want: \033[39m"))
                     if maxResult > 20:
-                        print(f"{Fore.RED}Sorry, only 20 items will be searched, because 20 is the maximum.!\033[39m")
+                        print(f"{Fore.RED}Sorry, only 20 items will be searched, because 20 is the maximum.!")
                         maxResult = 20 #اجبار المستخدم على 20 نتيجة لعدم البحث لوقت طويل
                     break
                 except ValueError:
-                    print(f"{Fore.RED}Sorry, please enter the number of results in numbers.!\033[39m")
+                    print(f"{Fore.RED}Sorry, please enter the number of results in numbers.!")
             else:
-                print(f"{Fore.RED}Sorry, enter 's' or 'y'\033[39m")
+                print(f"{Fore.RED}Sorry, enter 's' or 'y'")
                 continue
             
             def singleORlist(soundcloudORyoutube:str):
@@ -76,7 +76,7 @@ while True: #loop of projram
                     elif singleORlist == 'p':
                         return False
                     else:
-                        print(f"{Fore.RED}\nSorry, enter '{abbreviation}' or 'p'\033[39m")
+                        print(f"{Fore.RED}\nSorry, enter '{abbreviation}' or 'p'")
             if soundcloudORyoutube == 'y':
                 Youtube().print_video(userInput,maxResult,singleORlist('y'))
                 break
@@ -84,7 +84,7 @@ while True: #loop of projram
                 Soundcloud_dl().search(searchText= userInput, max_result=maxResult, track=singleORlist('s'))
                 break
             else:
-                print(f"{Fore.RED}Sorry, enter 'y' or 's'\033[39m")
+                print(f"{Fore.RED}Sorry, enter 'y' or 's'")
         continue #ارجع الى بداية اللوب
     elif userInputType == "youtube": #اذا كان النوع رابط يوتيوب
         dataCollection = False
@@ -152,7 +152,7 @@ while True: #loop of projram
                     path = input(f"{Fore.CYAN}\nEnter the path to place the video in (Press Enter to download to the desktop):\033[39m ").replace('\\','/').rstrip('/') #اخذ المسار
                     path = checkPath(path)
                     if path == None:
-                        print(f"{Fore.RED}Sorry, the path does not exist. Please enter a valid path to complete the download.!\033[39m")
+                        print(f"{Fore.RED}Sorry, the path does not exist. Please enter a valid path to complete the download.!")
                         continue
                     else:
                         if v.name == '':
@@ -180,7 +180,7 @@ while True: #loop of projram
                 while True: #وايل التاكد من الرغبة بتحميل الفديو
                     sureDownload = input(f"{Fore.CYAN}\nAre you sure you want to continue downloading? y/n:\033[39m ")
                     if sureDownload == 'y': #اذا كانت الاجابة نعم
-                        mp4fileName = checkName(path,'a','.mp4')
+                        mp4fileName = checkName(path,'XTUBE_LOAD','.mp4')
                         video.download(path, filename = mp4fileName) #تحميل
                         os.rename(path+'/'+mp4fileName+'.mp4', f"{path}/{v.name}{v.extension}") #تغير امتاد الصوت الى صوت (ملاحظة المكتبة تحمل الصوت بامتداد فديو مرئي ويتم تغيره هنا)
                         print(f"{Fore.YELLOW}Done, Download successful..!")
@@ -222,7 +222,7 @@ while True: #loop of projram
                         quality = '360p'
                         break
                     else:
-                        print(f"{Fore.RED}Please choose one of the above qualities.!\033[39m")
+                        print(f"{Fore.RED}Please choose one of the above qualities.!")
             elif downloadMethod == '2':
                 typeVoice = True
                 extension = '.mp3'
@@ -233,7 +233,7 @@ while True: #loop of projram
                 path = input(f"{Fore.CYAN}\nEnter the path to place the video in (Press Enter to download to the desktop):\033[39m ").replace('\\','/') #اخذ المسار
                 path = checkPath(path)
                 if path == None:
-                    print(f"{Fore.RED}Sorry, the path cannot be reached!\033[39m")
+                    print(f"{Fore.RED}Sorry, the path cannot be reached!")
                     continue
                 else:
                     break
@@ -248,19 +248,19 @@ while True: #loop of projram
                     else:
                         maxResult = int(maxResult)
                     if maxResult > maxResultOnPlaylist:
-                        print(f"{Fore.RED}Sorry, the number of results you want is more than the results in the playlist.!\033[39m")
+                        print(f"{Fore.RED}Sorry, the number of results you want is more than the results in the playlist.!")
                         continue
                     else:
                         break
                 except ValueError:
-                    print(f"{Fore.RED}Sorry, please enter the number of videos with numbers only.!\033[39m")
+                    print(f"{Fore.RED}Sorry, please enter the number of videos with numbers only.!")
                     continue
 
             for vidUrl in pl.video_urls[:maxResult]:
                 try:
                     yt = YouTube(vidUrl)
                 except Exception as e:
-                    print(f"{Fore.RED}Sorry, {e}.!\033[39m")
+                    print(f"{Fore.RED}Sorry, {e}.!")
                     continue
                 if userFileName == '':
                     fileName = checkName(path,yt.title,extension).replace('  ','_')
@@ -282,14 +282,14 @@ while True: #loop of projram
                 os.rename(path+'/'+mp4fileName+'.mp4', f"{path}/{fileName}{extension}") #تغير امتاد الصوت الى صوت (ملاحظة المكتبة تحمل الصوت بامتداد فديو مرئي ويتم تغيره هنا)
                 print(f"{Fore.YELLOW}Done, Download {fileName}{extension}")
         else:
-            print(f"{Fore.RED}Sorry, the link is not valid (try again)\033[39m")
+            print(f"{Fore.RED}Sorry, the link is not valid (try again)")
     elif userInputType == "soundTrack": #اذا كان النوع تراك ساوندكلاود
         fileName = input(f"{Fore.CYAN}\nEnter file name (Press enter to make the sound title name of file):\033[39m ") #اذ كنت ترغب بتغير الاسم
         while True: #وايل وضع مسار للملف
             path = input(f"{Fore.CYAN}\nEnter the path to place the video in (Press Enter to download to the desktop):\033[39m ").replace('\\','/').rstrip('/') #اخذ المسار
             path = checkPath(path)
             if path == None:
-                print(f"{Fore.RED}Sorry, the path does not exist. Please enter a valid path to complete the download.!\033[39m")
+                print(f"{Fore.RED}Sorry, the path does not exist. Please enter a valid path to complete the download.!")
             else:
                 if fileName != '':
                     fileName = checkName(path, fileName, '.mp3')
@@ -300,7 +300,7 @@ while True: #loop of projram
         if downloadState:
             pass
         else:
-            print(f"{Fore.RED}Sorry, the link is not valid (try again)\033[39m")
+            print(f"{Fore.RED}Sorry, the link is not valid (try again)")
     elif userInputType == "soundList": #اذا كان نوع قائمة تشغيل في ساوندكلاود
         try:
             pl = SoundcloudAPI().resolve(url)
@@ -314,7 +314,7 @@ while True: #loop of projram
                 path = input(f"{Fore.CYAN}\nEnter the path to place the track in (Press Enter to download to the desktop):\033[39m ").replace('\\','/').rstrip('/') #اخذ المسار
                 path = checkPath(path)
                 if path == None:
-                    print(f"{Fore.RED}Sorry, the path does not exist. Please enter a valid path to complete the download.!\033[39m")
+                    print(f"{Fore.RED}Sorry, the path does not exist. Please enter a valid path to complete the download.!")
                     continue
                 else:
                     break
@@ -328,18 +328,18 @@ while True: #loop of projram
                     else:
                         maxResult = int(maxResult)
                     if maxResult > maxResultOnPlaylist:
-                        print(f"{Fore.RED}Sorry, the number of results you want is more than the results in the playlist.!\033[39m")
+                        print(f"{Fore.RED}Sorry, the number of results you want is more than the results in the playlist.!")
                         continue
                     else:
                         break
                 except ValueError:
-                    print(f"{Fore.RED}Sorry, please enter the number of track with numbers only.!\033[39m")
+                    print(f"{Fore.RED}Sorry, please enter the number of track with numbers only.!")
                     continue
             for trackUrl in pl.tracks[:maxResult]:
                 fileName = checkName(path, userFileName, '.mp3')
                 try:
                     Soundcloud_dl().download(trackUrl.permalink_url,path,fileName)
                 except:
-                    print(f"{Fore.RED}Sorry, can't download {fileName}\033[39m")
+                    print(f"{Fore.RED}Sorry, can't download {fileName}")
         else:
-            print(f"{Fore.RED}Sorry, the link is not valid (try again)\033[39m")
+            print(f"{Fore.RED}Sorry, the link is not valid (try again)")
